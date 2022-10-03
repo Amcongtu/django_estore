@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{%block title %}Web shop - eror{%endblock%}
+{% load static %}
+
+{% block head %}
+    
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="o-color-dark error-a">
+        Không tìm thấy trang!!!!  CLick vào <a href="{% url 'main:index' %}"> đây</a> &nbsp;để trở về <a href="{% url 'main:index' %}"> Trang chủ</a>
+    </div>
+</div>
+    
+{% endblock %}

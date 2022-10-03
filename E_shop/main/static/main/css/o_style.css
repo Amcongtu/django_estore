@@ -1,0 +1,123 @@
+.o-active{
+    color: #0089ff !important;
+}
+.o-boxShadow-1{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.o-boxShadow-2{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.o-color-dark{
+    color: #333 !important;
+}
+.o-font-size-4{
+    font-size: 25px !important;
+}
+.o-boxShadow-3{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.o-color-dark::before{
+    color: #333 !important;
+}
+.o-border-radius-4{
+    border-radius: 4px !important;
+}
+
+.o-margin-auto{
+    margin: auto;
+    justify-content: center;
+
+}
+
+.o-text-transform{
+    text-transform: uppercase !important;
+}
+
+.o-text-decoration-none{
+    text-decoration: none !important;
+}
+.input-group-text:hover{
+    cursor: pointer;
+    font-weight: bold;
+    color: red;
+}
+.input-group-text{
+    outline: none !important;
+}
+.fas:hover{
+    cursor: pointer;
+}
+.fas-hover:hover{
+    cursor: pointer;
+    font-weight: bold;
+    color: red !important;
+}
+@media (min-width: 992px) {
+    .display-lg-none{
+        display: none !important;
+    }
+}
+@media (max-width: 991px){
+    .display-smaller-lg-none{
+        display: none !important;
+    }
+}
+
+.text-hover:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.o-height-3{
+    height: 40px !important;
+    display: block;
+}
+
+
+.o-display-block{
+    display: block !important;
+}
+.o-bg-color-none{
+    background-color: #fff !important;
+}
+.input-group-text .i{
+    border: #333 1px solid;
+}
+.input-nav-search{
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 38px 0.375rem   0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #EDF1FF;
+    border-radius: 0;
+    position: relative;
+
+}
+.sub-search{
+    position: absolute;
+    color: #333;
+    font-size: 1.1rem;
+    right:6px;
+    top:-2px;
+    padding: 8px;
+    cursor: pointer;
+}
+.sub-search:hover{
+    color: red;
+}
+.container-breadcrumb{
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.error-a{
+    font-size: 2rem !important;
+    text-align: center;
+    padding: 75px 0;
+}
