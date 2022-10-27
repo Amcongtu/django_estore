@@ -1,5 +1,5 @@
 {% extends 'main/base.html' %}
-{%block title %}Web shop - Trang chủ{%endblock%}
+{%block title %}Web shop{%endblock%}
 {% load static %}
 
 {% block head %}
@@ -15,7 +15,7 @@
                 <div class="p-3" style="max-width: 700px;">
                     <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
                     <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
-                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    <a href="{% url 'shop:shop' 'all-item' %}" class="btn btn-light py-2 px-3">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="p-3" style="max-width: 700px;">
                     <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
                     <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
-                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    <a href="{% url 'shop:shop' 'all-item' %}" class="btn btn-light py-2 px-3">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -77,36 +77,18 @@
 
     <!-- Categories Start -->
     <div class="container-fluid pt-3">
-        <div class="row px-xl-5 pb-3">
+        <div class="row px-xl-5 pb-3"  style="padding: 30px; height: 600px; overflow: hidden;">
+            {% for item in categories %}
             <div class="col-lg-4 col-md-6 pb-1">
-                <div class="cat-item o-boxShadow-1 d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="{% static 'main/img/cat-1.jpg' %}" alt="">
+                <div class="cat-item o-boxShadow-1 d-flex flex-column border mb-4" style="padding: 30px; height: 560px;">
+                    <p class="text-right o-color-dark">{{item.product_set.count}} products</p>
+                    <a href="{% url 'shop:shop' item.name %}" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="{{item.image.url}}" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
+                    <h5 class="font-weight-semi-bold m-0">{{item.name|upper}}</h5>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 pb-1">
-                <div class="cat-item o-boxShadow-1 d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="{% static 'main/img/cat-1.jpg' %}" alt="">
-                    </a>
-                    <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 pb-1">
-                <div class="cat-item o-boxShadow-1 d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="{% static 'main/img/cat-1.jpg' %}" alt="">
-                    </a>
-                    <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
-                </div>
-            </div>
-            
-            
+            {% endfor %}
         </div>
     </div>
     <!-- Categories End -->
@@ -121,77 +103,51 @@
             <h2 class="section-title px-5"><span class="px-2 o-color-dark">Trandy Products</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
+            {% for item in product_trendy %}
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card o-boxShadow-3 product-item border-0 mb-4">
+                <div class="card o-boxShadow-3 product-item border-0 mb-4"  style="height: 490px;">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href=""><img class="img-fluid w-100" src="{% static 'main/img/product-1.jpg' %}" alt=""></a>
+                        <a href=""><img class="img-fluid w-100" src="{{item.image_front.url}}" alt=""></a>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <h6 class="text-truncate mb-3">{{item.name}}</h6>
                         <div class="d-flex justify-content-center">
                             <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
+                    <div class="card-footer d-flex justify-content-between bg-light border display-smaller-lg-none">
+                        <form id="viewdetail_{{item.id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</form>
+                        <form action="">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </form>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border display-lg-none">
                         <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
                         <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card o-boxShadow-3 product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href=""><img class="img-fluid w-100" src="{% static 'main/img/product-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                        </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card o-boxShadow-3 product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href=""><img class="img-fluid w-100" src="{% static 'main/img/product-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                        </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card o-boxShadow-3 product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href=""><img class="img-fluid w-100" src="{% static 'main/img/product-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                        </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                    </div>
-                </div>
-            </div>
+            <script>
+                 $(function(){
+                    $("#viewdetail_{{item.id}}").click(function(){
+                        $("#form_detail").attr("style","display:flex");
+                      }); 
+                      $("#modal-close_detail1").click(function(){
+                        $("#form_detail").attr("style","display:none");
+                      }); 
+                    $(".modal_detail_product-form").click(function(){
+                        $("#form_detail").attr("style","display:none");
+                        
+                    })
+                    $(".modal_detail").click(function(e){
+                        e.stopPropagation()
+                    })
+                 })
+            </script>
+            {% endfor %}
+           
+           
+            
            
             
             
@@ -229,7 +185,7 @@
         </div>
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card o-boxShadow-3 product-item border-0 mb-4">
+                <div class="card o-boxShadow-3 product-item border-0 mb-4"  style="height: 490px;">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <a href=""><img class="img-fluid w-100" src="{% static 'main/img/product-1.jpg' %}" alt=""></a>
                     </div>
@@ -305,6 +261,7 @@
     </div>
     <!-- Products End -->
 
+    <hr>
 
     <!-- Vendor Start -->
     <div class="container-fluid py-3 ">
@@ -312,7 +269,7 @@
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
                     <div class="vendor-item border p-4 o-boxShadow-3 o-border-radius-4">
-                        <img  src="{% static 'main/img/vendor-1.jpg' %}" alt="">
+                        <img  src="{% static 'main/img/vendor-2.jpg' %}" alt="">
                     </div>
                     <div class="vendor-item border p-4 o-boxShadow-3 o-border-radius-4">
                         <img src="{% static 'main/img/vendor-1.jpg' %}" alt="">
@@ -323,7 +280,7 @@
         </div>
     </div>
     <!-- Vendor End -->
-
+<hr>
 
 
 {% endblock %}

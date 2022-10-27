@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{%block title %}Web shop - Contact{%endblock%}
+{% load static %}
+
+{% block head %}
+    
+{% endblock %}
+
+{% block content %}
+ 
+<!-- Contact Start -->
+<div class="container-fluid pt-3">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5  o-color-dark"><span class="px-2">Contact For Any Queries</span></h2>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-4">
+            <div class="contact-form">
+                <div id="success"></div>
+                
+                <form class="contact-form--control" method="post">
+                    {% csrf_token %}
+                    {{chuoi_kq|safe}}
+                    <div class="control-group">
+                        {{ form_contact.name }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        {{ form_contact.email }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        {{ form_contact.subject }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        {{ form_contact.message }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary py-2 px-4 form-btn" type="submit" id="sendMessageButton" name="send_message" value="Send mesage" >Send
+                            Message</button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-5 o-color-dark"  style="overflow-y: scroll; height:380px; padding: 30px; border-radius:4px; border: solid 1px #ccc;">
+            <h5 class="font-weight-semi-bold mb-3">Get In Touch</h5>
+            <p>Main office: 1212 Pham The Hien, ward 5, District 8, Ho Chi Minh city, Vietnam   </p>
+            <p>Contact: phamminhquan12e1@gmail.com   </p>
+            {% for location in locations %}
+            <div class="d-flex flex-column mb-3">
+                <h5 class="font-weight-semi-bold mb-3"style="text-transform:uppercase;">{{ forloop.counter }} . {{location.name}}</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>{{location.address}}</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>{{location.email}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+{% endblock %}

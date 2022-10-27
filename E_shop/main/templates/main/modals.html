@@ -1,0 +1,92 @@
+{% load static %}
+<div class="modal modal_form ">
+    <div class="modal-registration">
+        <div class="modal-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <header class="modal_header">
+            Đăng ký
+        </header>
+        <div class="modal-body">
+            <form action="/register-pc/" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <label for=""class="modal-label">  <i class="fa-solid fa-user-pen"></i></i>Họ và tên</label>
+                        <input name="fullname" type="text" class=" modal-input" placeholder="Nhập họ và tên">
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <label for=""class="modal-label">  <i class="fa-solid fa-mobile-screen"></i>Số điện thoại</label>
+                        <input name="phone_number" type="text" class=" modal-input" placeholder="Nhập số điện thoại">
+                    </div>
+                </div>
+               
+                
+                <label for=""class="modal-label">  <i class="fa-solid fa-user-large"></i>Tên đăng nhập</label>
+                <input type="text" name="email" class="model-account modal-input" placeholder="Tên đăng nhập">
+                <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>
+                    Mật khẩu</label>
+                <input name="password_register" type="password" class="model-account modal-input" placeholder="Nhập mật khẩu">
+                <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>
+                    Nhập lại mật khẩu</label>
+                <input name='password2_register' type="password" class="model-account modal-input" placeholder="Nhập mật lại khẩu">
+                <input  name="btnRegistration" type="submit" value="Đăng ký" class="btn-registration">
+                <div class="had-account">Bạn đã có tài khoản, vui lòng đăng nhập <i id="registration_here">tại đây</i></div>
+            </form>
+        </div>
+        
+    </div>
+   
+</div>
+<div class="modal_a modal_form">
+    <div class="modal-login">
+        <div class="modal-close_a">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <header class="modal_header">
+            Đăng nhập
+        </header>
+        <div class="modal-body">
+            <form action = "/login-pc/" method="post">
+                {% csrf_token %}
+                <label for=""class="modal-label">  <i class="fa-solid fa-user-large"></i>Tên đăng nhập</label>
+                <input type="text" name="email_login" class="model-account modal-input" placeholder="Tên đăng nhập">
+                <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>Mật khẩu</label>
+                <input type="password"  name="password_login" class="model-account modal-input" placeholder="Nhập mật khẩu">
+                <input name="btnLogin" type="submit" value="Đăng nhập" class="btn-login">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal_detail_product-form" id="form_detail">
+    <div class="modal_detail">
+        <div id="modal-close_detail1" class="modal-close_detail text-dark">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="col-md-5 col-lg-5">
+           <div class="image_modalDetail_container">
+                <img src="https://bizweb.dktcdn.net/100/318/614/products/3-52.jpg?v=1666241200613" alt="">
+           </div>
+           <div class="image-thumnails_modale-container text-dark">
+                <div class="col-md-3 col-lg-3 image-thumnails-item">
+                    <img src="https://bizweb.dktcdn.net/100/318/614/products/3-52.jpg?v=1666241200613" alt="">
+
+                </div>
+                <div class="col-md-3 col-lg-3 image-thumnails-item">
+                    <img src="https://bizweb.dktcdn.net/100/318/614/products/3-52.jpg?v=1666241200613" alt="">
+
+                </div><div class="col-md-3 col-lg-3 image-thumnails-item">
+                    <img src="https://bizweb.dktcdn.net/100/318/614/products/3-52.jpg?v=1666241200613" alt="">
+
+                </div><div class="col-md-3 col-lg-3 image-thumnails-item">
+                    <img src="https://bizweb.dktcdn.net/100/318/614/products/3-52.jpg?v=1666241200613" alt="">
+
+                </div>
+           </div>
+        </div>
+        <div class="col-md-7 col-lg-7 modal-detailProduct-right">
+           <h3>TRÀ THÁI CHÂU ĐÁNG IU SIÊU CẤP =))</h3>
+    </div>
+</div>

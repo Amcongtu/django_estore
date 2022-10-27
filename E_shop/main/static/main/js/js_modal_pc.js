@@ -1,3 +1,5 @@
+
+// modal login / register
 function modalRegistration(){
     var modalRegistration = document.querySelector('.js-modal-registration')
 
@@ -61,4 +63,8 @@ function clicktologin(){
     
 }
 clicktologin()
+
+
+// modal login / register
+
 

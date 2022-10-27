@@ -1,3 +1,51 @@
+.modal_detail_product-form{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.4);
+}
+.image_modalDetail_container{
+    width: 358px;
+    height: 358px;
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 8px;
+
+}
+.image_modalDetail_container img{
+    width: 100%;
+}
+.modal_detail{
+
+display: flex;
+min-width: 1032px !important;
+padding: 24px;
+
+}
+.image-thumnails_modale-container{
+    display: flex;
+    max-width: 90%;
+    margin: 5px 0;
+}
+.image-thumnails_modale-container .image-thumnails-item{
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 0 2px;
+    padding: 4px !important;
+}
+.image-thumnails-item img{
+    width: 100%;
+
+}
+.modal-detailProduct-right{
+    padding: 40px 40px 0 0 !important;
+    width: 90% !important;
+}
+
 .modal_a,
 .modal{
     position: fixed;
@@ -11,14 +59,18 @@
     justify-content: center;
     z-index: 5;
 }
+.modal_detail{
+    max-width: 850px !important;
+}
+
+.modal_detail,
 .modal-login,
 .modal-registration{
     margin: auto;
     background: #fff;
     min-width: 850px ;
-
     position: relative;
-    box-sizing: 0 0 10px rgba(0,0,0,.8);
+    box-shadow: 0 0 10px rgba(0,0,0,.8);
     border-radius: 4px;
     animation: moDalFaceIn ease 0.4s;
 }
@@ -35,6 +87,7 @@
     border-top-right-radius: 4px;
     padding: 50px;
 }
+.modal-close_detail,
 .modal-close_a,
 .modal-close{
     position: absolute;
@@ -43,7 +96,7 @@
     line-height: 1.4rem;
     color: #fff;
     font-size: 1.5rem;
-    padding: 10px 15px 10px 20px;
+    padding: 10px 15px 15px 20px;
     cursor: pointer;
 
 }
@@ -63,6 +116,9 @@
     margin: 16px 0 8px 0;
     font-weight: 500;
     color: #333;
+}
+.modal-close_detail:hover{
+    color: red !important;
 }
 .modal-close_a:hover,
 .modal-close:hover{

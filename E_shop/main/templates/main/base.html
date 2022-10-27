@@ -28,6 +28,7 @@
 
     <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'main/css/o_style.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
     {% block head %}
     
@@ -35,250 +36,40 @@
 </head>
 
 <body>
+
     <!-- Topbar Start -->
-    <div class="container-fluid">
-        <div class="row bg-secondary py-2 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center">
-                    <span class="text-light" href="">Phone number</span>
-                 
-                    <span class="text-muted px-2">:</span>
-                    <a style="text-decoration:none;"class="text-light" href="">0963008977</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right ">
-                <div class="d-inline-flex align-items-center display-smaller-lg-none ">
-                    <span class="text-light px-2 js-modal-registration text-hover" href="">
-                        Register
-                    </span>
-                    <span class="text-light px-2 js-modal-login text-hover" href="">
-                        Login
-                    </span>
-                </div>
-                <div class="d-inline-flex align-items-center display-lg-none">
-                    <a class="text-light px-2" href="">
-                        Register
-                    </a>
-                    <a class="text-light px-2" href="">
-                        Login
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center py-3 px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a href="" class="text-decoration-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
-                </a>
-            </div>
-            <div class="col-lg-6 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent ">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border fas-hover" style="color:#333;">
-                    <i class="fas fa-heart"></i>
-                    <span class="badge">0</span>
-                </a>
-                <a href="" class="btn border fas-hover" style="color:#333;">
-                    <i class="fas fa-shopping-cart "></i>
-                    <span class="badge">0</span>
-                </a>
-            </div>
-        </div>
-    </div>
+    {% include 'main/topbar.html' %}
     <!-- Topbar End -->
-
-
+    <!--====================================== -->
     <!-- Navbar Start -->
-    <div class="container-fluid ">
-        <div class="row border-top px-xl-5">
-        
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
-                    </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
-                            <a href="{% url 'main:index' %}" class="nav-item nav-link {% if nav == "index" %}active{% endif%}">Home</a>
-                            <a href="{% url 'main:shop' %}" class="nav-item nav-link {% if nav == "shop" %}active{% endif%}">Shop</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Clothing</a>
-                                <div class="dropdown-menu  rounded-0 m-0 o-boxShadow-1 o-border-radius-4">
-                                    <a href="cart.html" class="dropdown-item o-text-transform">ALL ITEM</a>
-                                    <a href="cart.html" class="dropdown-item o-text-transform">TEE</a>
-                                    <a href="cart.html" class="dropdown-item o-text-transform">Hodie</a>
-                                    
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                        
-                    </div>
-                </nav>
-                
-            </div>
-        </div>
-    </div>
+    {% include 'main/navbar.html' %}
     <!-- Navbar End -->
-    {% if nav != "index"%}
-        {% if nav != "error" %}
-    <hr>
-    <div class="container-breadcrumb">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'main:index' %}">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{{nav}}</li>
-            </ol>
-          </nav>
-    </div>
-    <hr>
-    {% endif %}
-    {% endif%}
-
+    <!--====================================== -->
+    <!--Breadcrumb start-->
+    {% include 'main/breadcrumb.html' %}
+    <!--Breadcrumb end-->
+    <!--====================================== -->
+    <!--Content start-->
     {% block content %}
-    
+    <!--====================================== -->
     {% endblock  %}
-
-
+    <!--Content end-->
+    <!--====================================== -->
     <!-- Footer Start -->
-    <div class="container-fluid bg-secondary text-light mt-5 pt-5">
-        <div class="row px-xl-5 pt-5">
-            
-            <div class="col-lg-12 col-md-12 o-margin-auto">
-                <div class="row o-margin-auto">
-                    <div class="col-md-2 mb-5">
-                        <h5 class="font-weight-bold text-light mb-4">FOLLOW US</h5>
-                        <div class="d-flex p-3 justify-content-start">
-                            <a class="text-light" href="index.html"><i class="o-font-size-4 fa-brands fa-facebook-f"></i></a>
-                            <a class="text-light ml-5 " href="shop.html"><i class="o-font-size-4 fa-brands fa-instagram"></i></a>
-                        
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-5">
-                        <h5 class="font-weight-bold text-light mb-4">HƯỚNG DẪN</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="index.html">Điều khoản</a>
-                            <a class="text-light mb-2" href="shop.html">Hướng dẫn mua hàng</a>
-                            <a class="text-light mb-2" href="detail.html">Chính sách đổi trả</a>
-                            <a class="text-light mb-2" href="cart.html">Bảo mật thông tin khách hàng</a>
-                            <a class="text-light mb-2" href="checkout.html">Chính sách thanh toán</a>
-                        </div>
-                    </div>
-                    <div class="col-md-5 mb-5">
-                        <h5 class="font-weight-bold text-light mb-4">ADDRESS</h5>
-                        <div class="d-flex flex-column  pl-2 justify-content-start">
-                            
-                            <a class="text-light mb-2 " href="shop.html">1. ASDM,FMK ASDFJKKASDJFKLA JKASHDFJKHASDK ÁDFJKL</a>
-                            <a class="text-light mb-2 " href="shop.html">1. ASDM,FMK ASDFJKKASDJFKLA JKASHDFJKHASDK ÁDFJKL</a>
-                            <a class="text-light mb-2 " href="shop.html">1. ASDM,FMK ASDFJKKASDJFKLA JKASHDFJKHASDK ÁDFJKL</a>
-                            <a class="text-light mb-2 " href="shop.html">1. ASDM,FMK ASDFJKKASDJFKLA JKASHDFJKHASDK ÁDFJKL</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row border-top border-light mx-xl-5 py-4">
-            <div class="col-md-6 px-xl-0">
-                <p class="mb-md-0 text-center text-md-left text-light">
-                    &copy; <a class="text-light font-weight-semi-bold" href="#">E Webshop</a>. All Rights Reserved. Designed
-                    by
-                    <a class="text-light font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br>
-                    Distributed By <a class="text-light font-weight-semi-bold" href="https://www.facebook.com/kenny.Quanlx/" target="_blank">Minh Quân</a>
-                </p>
-            </div>
-            <div class="col-md-6 px-xl-0 text-center text-md-right">
-                <img class="img-fluid" src="img/payments.png" alt="">
-            </div>
-        </div>
-    </div>
+    {% include 'main/footer.html' %}
     <!-- Footer End -->
-
-
+    <!--====================================== -->
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
+    <!--====================================== -->
     {% comment %} modal on pc {% endcomment %}
-    <div class="modal modal_form ">
-        <div class="modal-registration">
-            <div class="modal-close">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <header class="modal_header">
-                Đăng ký
-            </header>
-            <div class="modal-body">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <label for=""class="modal-label">  <i class="fa-solid fa-user-pen"></i></i>Họ và tên</label>
-                            <input type="text" class=" modal-input" placeholder="Nhập họ và tên">
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <label for=""class="modal-label">  <i class="fa-solid fa-mobile-screen"></i>Số điện thoại</label>
-                            <input type="text" class=" modal-input" placeholder="Nhập số điện thoại">
-                        </div>
-                    </div>
-                   
-                    
-                    <label for=""class="modal-label">  <i class="fa-solid fa-user-large"></i>Tên đăng nhập</label>
-                    <input type="text" class="model-account modal-input" placeholder="Tên đăng nhập">
-                    <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>
-                        Mật khẩu</label>
-                    <input type="password" class="model-account modal-input" placeholder="Nhập mật khẩu">
-                    <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>
-                        Nhập lại mật khẩu</label>
-                    <input type="password" class="model-account modal-input" placeholder="Nhập mật lại khẩu">
-                    <input type="submit" value="Đăng ký" class="btn-registration">
-                    <div class="had-account">Bạn đã có tài khoản, vui lòng đăng nhập <i id="registration_here">tại đây</i></div>
-                </form>
-            </div>
-            
-        </div>
-       
-    </div>
-    <div class="modal_a modal_form">
-        <div class="modal-login">
-            <div class="modal-close_a">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <header class="modal_header">
-                Đăng nhập
-            </header>
-            <div class="modal-body">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <label for=""class="modal-label">  <i class="fa-solid fa-user-large"></i>Tên đăng nhập</label>
-                    <input type="text" class="model-account modal-input" placeholder="Tên đăng nhập">
-                    <label for=""class="modal-label">  <i class="fa-solid fa-lock"></i>Mật khẩu</label>
-                    <input type="password" class="model-account modal-input" placeholder="Nhập mật khẩu">
-                    <input type="submit" value="Đăng nhập" class="btn-login">
-                </form>
-            </div>
-        </div>
-       
-    </div>
+    {% include 'main/modals.html' %}
     {% comment %} end model on pc  {% endcomment %}
-
+    <!--====================================== -->
     <!-- JavaScript modals form-->
     <script src="{% static 'main/js/js_modal_pc.js' %}"></script>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'main/lib/easing/easing.min.js' %}"></script>
     <script src="{% static 'main/lib/owlcarousel/owl.carousel.min.js' %}"></script>

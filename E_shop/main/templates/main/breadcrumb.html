@@ -1,0 +1,31 @@
+{% load static %}
+{% if nav != "index"%}
+{% if nav != "error" %}
+    
+    {% if nav == "detail" %}
+    <hr>
+    <div class="container-breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'main:index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'shop: shop' %}">Shop</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{nav}}</li>
+            </ol>
+        </nav>
+    </div>
+    <hr>
+
+    {% else %}
+    <hr>
+    <div class="container-breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'main:index' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{nav}}</li>
+            </ol>
+        </nav>
+    </div>
+    <hr>
+    {% endif %}
+{% endif %}
+{% endif%}

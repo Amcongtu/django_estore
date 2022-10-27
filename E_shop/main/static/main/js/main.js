@@ -1,4 +1,5 @@
 (function ($) {
+    const hosturl = 'http://127.0.0.1:8000/'
     "use strict";
     
     // Dropdown on mouse hover
@@ -99,6 +100,31 @@
         }
         button.parent().parent().find('input').val(newVal);
     });
-    
+
+
+    $.ajax({
+        type: 'GET',
+        url: hosturl+'jsonlocation/',
+        success: function (data){
+           const loctionitems = data.map(function(item,index){
+                return item.status_Location === 1 ? `<a class="text-light mb-2 " href="shop.html" style="text-transform: uppercase;">${index+1} . ${item.name}</a>` : ''
+            })
+            $('#location__list').html(loctionitems.join(''))
+          
+        }
+    })
+    const linknavitem = hosturl + 'shop/'
+    $.ajax({
+        type: 'GET',
+        url: hosturl+'jsoncategory/',
+        success: function (data){
+            const categoryitems = data.map(function(item){
+                
+                return `<a href="${linknavitem}${item.name.toLowerCase()}/" class="dropdown-item o-text-transform"> ${item.name} </a>`
+            })
+            $('#nav-category').html(`<a href="${linknavitem}all-item/" class="dropdown-item o-text-transform">ALL ITEMS</a>`.concat(categoryitems.join('')))
+        }
+    })
 })(jQuery);
+
 

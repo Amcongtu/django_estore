@@ -1,0 +1,72 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block" style="line-height:35px;">
+            <div class="d-inline-flex align-items-center">
+                <span class="text-light" href="">Phone number</span>
+             
+                <span class="text-muted px-2">:</span>
+                <a style="text-decoration:none;"class="text-light" href="">0963008977</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right ">
+            {% if request.session.s_user %}
+            <div class="d-inline-flex align-items-center display-smaller-lg-none">    
+                <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">
+                    {{  request.session.s_user.fullname }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right o-toggle-nav o-boxShadow-2">
+                    <a href="{% url 'customers:my-account' %}" class="dropdown-item">Thông tin của tôi</a>
+                    <a href="{% url 'customers:logout_pc' %}" class="dropdown-item">Đăng xuất</a>
+                </div>
+                
+            </div>
+            
+            {% else %}
+            <div class="d-inline-flex align-items-center display-smaller-lg-none "style="line-height:32px;">
+                <span class="text-light px-2 js-modal-registration text-hover" href="">
+                    Register
+                </span>
+                <span class="text-light">|</span>
+                <span class="text-light px-2 js-modal-login text-hover" href="">
+                    Login
+                </span>
+            </div>
+            {% endif %}
+            <div class="d-inline-flex align-items-center display-lg-none">
+                <a class="text-light px-2" href="">
+                    Register
+                </a>
+                <a class="text-light px-2" href="">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="{% url 'main:index' %}" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">TTC</span>Shopper</h1>
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            <form action="{% url 'main:search' %}" method="GET">
+                <div class="input-group border o-boxShadow-4">
+                    <input name="search_topnav" type="text" class="input-nav-search" placeholder="Search for products">
+                    <button type="submit" class="fa-solid fa-magnifying-glass sub-search"></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-6 text-right">
+            <a href="" class="btn border fas-hover o-boxShadow-3" style="color:#333;">
+                <i class="fas fa-heart"></i>
+                <span class="badge">0</span>
+            </a>
+            <a href="" class="btn border fas-hover o-boxShadow-3" style="color:#333;">
+                <i class="fas fa-shopping-cart "></i>
+                <span class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
